@@ -36,7 +36,7 @@ def is_full(board):
 
 
 def is_terminal(board):
-    pass
+    return is_win(board, AI) or is_win(board, HUMAN) or is_full(board)
 
 
 def windows(board):
