@@ -8,7 +8,7 @@ def create_board():
 
 
 def is_valid_move(board, col):
-    return 0 <= col < COLS and board[ROWS-1][col] == EMPTY
+    return 0 <= col < COLS and board[ROWS - 1][col] == EMPTY
 
 
 def legal_moves(board):
@@ -25,11 +25,14 @@ def drop(board, col, piece):
 
 
 def is_win(board, piece):
-    pass
+    for w in windows(board):
+        if w == [piece] * 4:
+            return True
+    return False
 
 
 def is_full(board):
-    pass
+    return legal_moves(board) == []
 
 
 def is_terminal(board):
@@ -37,7 +40,15 @@ def is_terminal(board):
 
 
 def windows(board):
-    pass
+    result = []
+    for dr, dc in [(0, 1), (1, 0), (1, 1), (-1, 1)]:
+        for r in range(ROWS):
+            for c in range(COLS):
+                end_r = r + 3 * dr
+                end_c = c + 3 * dc
+                if 0 <= end_r < ROWS and 0 <= end_c < COLS:
+                    result.append([board[r + i * dr][c + i * dc] for i in range(4)])
+    return result
 
 
 def print_board(board):
