@@ -52,4 +52,7 @@ def windows(board):
 
 
 def print_board(board):
-    pass
+    symbols = {EMPTY: ".", AI: "X", HUMAN: "O"}
+    for r in range(ROWS - 1, -1, -1):
+        print(" ".join(symbols[cell] for cell in board[r]))
+    print(" ".join(str(c) for c in range(COLS)))
