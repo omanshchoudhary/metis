@@ -1,0 +1,16 @@
+position,depth,minimax_move,alphabeta_move,minimax_score,alphabeta_score,minimax_nodes,alphabeta_nodes,minimax_time,alphabeta_time,same_move
+empty,2,3,3,3,3,57,21,0.0088,0.003,True
+empty,3,3,3,8,8,400,82,0.0565,0.0116,True
+empty,4,3,3,6,6,2801,178,0.4231,0.0267,True
+empty,5,3,3,12,12,19608,641,3.0416,0.0969,True
+empty,6,3,3,9,9,137257,1370,22.4464,0.1906,True
+opening,2,3,3,6,6,57,33,0.0089,0.005,True
+opening,3,3,3,12,12,400,152,0.0606,0.0222,True
+opening,4,3,3,10,10,2717,357,0.4249,0.05,True
+opening,5,3,3,17,17,18935,2610,2.8495,0.3705,True
+opening,6,3,3,12,12,127053,5879,19.4738,0.7807,True
+midgame,2,2,2,14,14,57,30,0.0088,0.0045,True
+midgame,3,2,2,25,25,400,173,0.0599,0.0248,True
+midgame,4,3,3,21,21,2716,430,0.4196,0.0595,True
+midgame,5,3,3,31,31,18902,2994,2.8036,0.4175,True
+midgame,6,3,3,25,25,125945,6316,19.2415,0.8276,True
