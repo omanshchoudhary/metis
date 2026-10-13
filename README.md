@@ -4,7 +4,7 @@ Connect Four AI in pure Python using minimax with alpha-beta pruning and a hand-
 
 Metis plays Connect Four against a human. On each turn it searches the game tree a fixed number of moves ahead, assumes the opponent always plays their best reply, and picks the move with the best guaranteed outcome. Positions at the depth cutoff are scored by a heuristic evaluation function.
 
-> **Status:** in progress. The board engine is complete. Evaluation and search are under development.
+> **Status:** in progress. Board engine, Eval 1, minimax and alpha-beta are working. Eval 2 and the head-to-head experiment are next.
 
 ## How it works
 
@@ -54,6 +54,16 @@ Python 3. No third-party packages: the AI uses only the standard library.
 git clone <repo-url>
 cd metis
 python3 main.py
+python3 main.py --first ai --depth 5
+python3 main.py --moves 3324 --first ai --once
+```
+
+`--moves` sets up a starting position as the columns played in order, alternating from whoever moves first. `--once` prints the AI's chosen move for that position, with its score, nodes expanded and time, then exits. `--algorithm minimax` switches off pruning.
+
+Run the minimax vs alpha-beta comparison:
+
+```bash
+python3 experiments.py
 ```
 
 Run the tests:
