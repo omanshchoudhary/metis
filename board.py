@@ -2,19 +2,23 @@ EMPTY, AI, HUMAN = 0, 1, 2
 ROWS, COLS = 6, 7
 
 
+# empty 6x7 board, row 0 is the bottom
 def create_board():
     board = [[EMPTY for _ in range(COLS)] for _ in range(ROWS)]
     return board
 
 
+# column is on the board and its top cell is free
 def is_valid_move(board, col):
     return 0 <= col < COLS and board[ROWS - 1][col] == EMPTY
 
 
+# every column a piece can still go into
 def legal_moves(board):
     return [col for col in range(COLS) if is_valid_move(board, col)]
 
 
+# copy of the board with the piece at the lowest empty cell
 def drop(board, col, piece):
     new_board = [row[:] for row in board]
     for r in range(ROWS):
@@ -24,6 +28,7 @@ def drop(board, col, piece):
     return new_board
 
 
+# true if piece fills any of the 69 windows
 def is_win(board, piece):
     for w in windows(board):
         if w == [piece] * 4:
@@ -31,14 +36,17 @@ def is_win(board, piece):
     return False
 
 
+# no legal moves left, so a draw if nobody won
 def is_full(board):
     return legal_moves(board) == []
 
 
+# game over: either side won or the board is full
 def is_terminal(board):
     return is_win(board, AI) or is_win(board, HUMAN) or is_full(board)
 
 
+# all 69 lines of four: horizontal, vertical, both diagonals
 def windows(board):
     result = []
     for dr, dc in [(0, 1), (1, 0), (1, 1), (-1, 1)]:
@@ -51,6 +59,7 @@ def windows(board):
     return result
 
 
+# show the board top row first, ai as X, human as O
 def print_board(board):
     symbols = {EMPTY: ".", AI: "X", HUMAN: "O"}
     for r in range(ROWS - 1, -1, -1):
